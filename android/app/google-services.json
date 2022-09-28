@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "835391927105",
+    "project_id": "mobilelabsastu",
+    "storage_bucket": "mobilelabsastu.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:835391927105:android:d00d4456a6960e46e327c0",
+        "android_client_info": {
+          "package_name": "com.example.mobile"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "835391927105-srobv1o01e5eepi43hcvj5s8rk9r7d3c.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAd3c0s1jrTu255NopSaFmt4aoAMvVY-Zs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "835391927105-srobv1o01e5eepi43hcvj5s8rk9r7d3c.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "835391927105-rtfdkv051dbs7hkppd724qg1jbmc9i6v.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.mobile"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
