@@ -3,14 +3,20 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:mobile/components/custombar.dart';
+import 'package:mobile/services/notification_service.dart';
+import 'package:mobile/services/service_locator.dart';
 
 class NetworkPage extends StatefulWidget {
+  const NetworkPage({super.key});
+
   @override
   NetworkPageState createState() => NetworkPageState();
 }
 
 class NetworkPageState extends State<NetworkPage> {
   late StreamSubscription<ConnectivityResult> subscription;
+
+  NotificationService notificationService = getIt<NotificationService>();
 
   var type = 'Unknown';
 
@@ -30,6 +36,8 @@ class NetworkPageState extends State<NetworkPage> {
             type = "Sim";
             break;
           case ConnectivityResult.none:
+            notificationService.showNotification(
+                "Вы отключились от сети", "Уведомление");
             type = "-";
             break;
           case ConnectivityResult.ethernet:

@@ -47,6 +47,9 @@ dependencies:
   flutter_map: ^3.0.0
   connectivity_plus: ^2.3.7
   sensors_plus: ^1.4.0
+  flutter_local_notifications: ^11.0.1
+  get_it: ^7.2.0
+  firebase_storage: ^10.3.10
 
 dev_dependencies:
   flutter_test:

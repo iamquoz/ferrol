@@ -6,6 +6,7 @@ import 'package:mobile/pages/camera.dart';
 import 'package:mobile/pages/maps.dart';
 import 'package:mobile/pages/network.dart';
 import 'package:mobile/pages/sensors.dart';
+import 'package:mobile/pages/todos.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key, required this.camera});
@@ -21,11 +22,11 @@ class HomePage extends StatelessWidget {
             page: CameraPage(camera: camera),
             icon: Icons.camera,
             color: const Color(0xffe91e63)),
-        CustomButton(
+        const CustomButton(
             text: "Сеть",
             page: NetworkPage(),
             icon: Icons.network_check,
-            color: const Color(0xff2196f3)),
+            color: Color(0xff2196f3)),
         CustomButton(
             text: "Локальная БД",
             page: CameraPage(camera: camera),
@@ -33,7 +34,7 @@ class HomePage extends StatelessWidget {
             color: const Color(0xFF589636)),
         CustomButton(
             text: "Удаленная БД",
-            page: CameraPage(camera: camera),
+            page: ToDoListPage(),
             icon: Icons.web,
             color: const Color(0xFFFFCA28)),
         const CustomButton(

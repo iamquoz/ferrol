@@ -4,6 +4,8 @@ import 'package:flutter_map/flutter_map.dart';
 // ignore: depend_on_referenced_packages
 import 'package:latlong2/latlong.dart';
 import 'package:mobile/components/custombar.dart';
+import 'package:mobile/services/location_service.dart';
+import 'package:mobile/services/service_locator.dart';
 
 class MapPage extends StatefulWidget {
   const MapPage({super.key});
@@ -14,11 +16,12 @@ class MapPage extends StatefulWidget {
 
 class MapPageState extends State<MapPage> {
   MapController mapController = MapController();
+  LocationService locationService = getIt<LocationService>();
 
   @override
   void initState() {
     super.initState();
-    determinePosition().then((value) {
+    locationService.getPosition().then((value) {
       if (mounted) {
         setState(() {
           latitude = value.latitude;
@@ -29,33 +32,14 @@ class MapPageState extends State<MapPage> {
     }).catchError((error) => print(error));
   }
 
+  @override
+  void dispose() {
+    mapController.dispose();
+    super.dispose();
+  }
+
   late double latitude = 0.0;
   late double longitude = 0.0;
-
-  Future<Position> determinePosition() async {
-    bool serviceEnabled;
-    LocationPermission permission;
-
-    serviceEnabled = await Geolocator.isLocationServiceEnabled();
-    if (!serviceEnabled) {
-      return Future.error('Location services are disabled.');
-    }
-
-    permission = await Geolocator.checkPermission();
-    if (permission == LocationPermission.denied) {
-      permission = await Geolocator.requestPermission();
-      if (permission == LocationPermission.denied) {
-        return Future.error('Location permissions are denied');
-      }
-    }
-
-    if (permission == LocationPermission.deniedForever) {
-      return Future.error(
-          'Location permissions are permanently denied, we cannot request permissions.');
-    }
-
-    return await Geolocator.getCurrentPosition();
-  }
 
   @override
   Widget build(BuildContext context) {

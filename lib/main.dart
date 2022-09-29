@@ -1,12 +1,25 @@
 import 'package:camera/camera.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:mobile/components/custombar.dart';
+import 'package:mobile/services/firebase_service.dart';
+import 'package:mobile/services/location_service.dart';
+import 'package:mobile/services/notification_service.dart';
+import 'package:mobile/services/service_locator.dart';
 
 import 'pages/home.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
+
+  FirebaseService();
+
   final cameras = await availableCameras();
+  await NotificationService().init();
+  LocationService();
+
+  setup();
   runApp(MyApp(camera: cameras.first));
 }
 
