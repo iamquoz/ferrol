@@ -1,17 +1,16 @@
 import 'package:flutter/material.dart';
 
 class CustomButton extends StatelessWidget {
-  const CustomButton(
-      {super.key,
-      required this.text,
-      required this.page,
-      required this.icon,
-      required this.color});
+  const CustomButton({
+    super.key,
+    required this.text,
+    required this.page,
+    required this.icon,
+  });
 
   final IconData icon;
   final String text;
   final Widget page;
-  final Color color;
 
   @override
   Widget build(BuildContext context) {
@@ -23,19 +22,20 @@ class CustomButton extends StatelessWidget {
               .push(MaterialPageRoute(builder: (context) => page));
         },
         style: ButtonStyle(
-          backgroundColor: MaterialStateProperty.all<Color>(color),
+          backgroundColor:
+              MaterialStateProperty.all<Color>(const Color(0xfff1a13f)),
           padding: MaterialStateProperty.all<EdgeInsetsGeometry>(
             const EdgeInsets.all(20),
           ),
         ),
         icon: Icon(
           icon,
-          color: Colors.white,
+          color: Colors.black,
         ),
         label: Text(
           text,
           style: const TextStyle(
-            color: Colors.white,
+            color: Colors.black,
             fontSize: 20,
           ),
         ),

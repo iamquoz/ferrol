@@ -36,6 +36,7 @@ class SensorsPageState extends State<SensorsPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: const Color(0xffd6d6d6),
       appBar: const CustomAppBar(title: "Датчики"),
       body: Center(
           child: Column(

@@ -52,7 +52,6 @@ class NetworkPageState extends State<NetworkPage> {
     });
   }
 
-// Be sure to cancel subscription after you are done
   @override
   dispose() {
     subscription.cancel();
@@ -63,7 +62,8 @@ class NetworkPageState extends State<NetworkPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: CustomAppBar(title: "Сеть"),
+      backgroundColor: const Color(0xffd6d6d6),
+      appBar: const CustomAppBar(title: "Сеть"),
       body: Center(
         child: Text("Тип подключения: $type"),
       ),

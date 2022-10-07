@@ -1,20 +1,20 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:hive/hive.dart';
+part 'todo.g.dart';
 
+@HiveType(typeId: 5)
 class ToDo {
-  String topic;
-  String desc;
-  bool complete = false;
-  GeoPoint location;
-  Timestamp time;
-  Timestamp dateCompletion;
-  List<dynamic> files;
+  @HiveField(0)
+  String id;
+  @HiveField(1)
+  String title;
 
-  ToDo(
-      {required this.topic,
-      required this.desc,
-      required this.location,
-      required this.time,
-      required this.dateCompletion,
-      required this.files,
-      this.complete = false});
+  ToDo({
+    this.id = "",
+    required this.title,
+  });
+
+  Map toJson() => {
+        "id": id,
+        "title": title,
+      };
 }

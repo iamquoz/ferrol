@@ -37,6 +37,7 @@ class TakePictureScreenState extends State<CameraPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: const Color(0xffd6d6d6),
       appBar: const CustomAppBar(title: "Камера"),
       body: FutureBuilder<void>(
         future: _initializeControllerFuture,
@@ -82,6 +83,7 @@ class DisplayPictureScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: const Color(0xffd6d6d6),
       appBar: AppBar(title: const Text('Просмотр')),
       body: Image.file(File(imagePath)),
     );

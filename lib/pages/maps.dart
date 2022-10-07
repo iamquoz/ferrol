@@ -44,6 +44,7 @@ class MapPageState extends State<MapPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: const Color(0xffd6d6d6),
       appBar: const CustomAppBar(title: "Карты"),
       body: FlutterMap(
         mapController: mapController,
